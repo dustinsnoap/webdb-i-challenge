@@ -1,7 +1,12 @@
-const express = require('express');
+const express = require('express')
+const cors = require('cors')
+const server = express()
 
-const server = express();
+const accountRoutes = require('./routes')
 
-// your code here
+server.use(express.json())
+server.use(cors())
+
+server.use('/api/accounts', accountRoutes)
 
 module.exports = server;
